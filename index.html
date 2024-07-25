@@ -1,0 +1,59 @@
+<!doctype html>
+
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title> Javascript 실습 - 4회 </title>
+
+        <meta name="title" content="Javascript 실습 - 4회" />
+        <meta name="description" content="Practicing Javascript - 04" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://website.com" />
+        <meta property="og:title" content="Javascript 실습 - 4회" />
+        <meta property="og:description" content="Practicing Javascript - 04" />
+        <meta property="og:image" content="https://website.com/images/meta-image.png" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://website.com" />
+        <meta property="twitter:title" content="Javascript 실습 - 4회" />
+        <meta property="twitter:description" content="Practicing Javascript - 04" />
+        <meta property="twitter:image" content="https://website.com/images/meta-image.png" />
+
+        <link rel="preload" as="font" type="font/woff2" crossorigin="" href="./assets/fonts/SUIT-Variable.woff2">
+        <link rel="stylesheet" href="./assets/css/style.css">
+
+        <!-- Font Awesome -->
+        <script src="https://kit.fontawesome.com/f67ce84ea1.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <div id="wrap">
+            <section id="secTodo">
+                <header id="headTodoList">
+                    <i class="fa-solid fa-list-ol"></i> 할 일 목록
+                </header>
+
+                <div id="todoInput">
+                    <input type="text" name="text-todo" id="txtTodoInput" placeholder="할 일 입력...">
+                    <button type="button" id="btnEnter">
+                        <span>추가</span>
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+
+                <div id="todoContainer">
+                    <ul id="todoList">
+                        <p class="todo-placeholder">아직 할 일이 없어요.</p>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <script src="./assets/scripts/base.js"></script>
+    </body>
+</html>
