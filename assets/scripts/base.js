@@ -108,8 +108,9 @@ console.log(`넓이는 ${ anonSquare.area }입니다.`);
 class StatSquare {
     #length
 
-    static #counter = 0;
-    static get counter() {
+    static stField = 3.14; // static field라고 부른다.
+    static #counter = 0; // static private으로 StatSquare 클래스의 속성을 지정한다.
+    static get counter() { // getter를 설정하여 class의 static 속성에 접근할 수 있게 한다.
         return StatSquare.#counter;
     }
 
@@ -118,11 +119,11 @@ class StatSquare {
         StatSquare.#counter += 1;
     }
 
-    static perimeterOf(length) {
+    static perimeterOf(length) { // class 자체에서 작동하는 function이다.
         return length * 4;
     }
 
-    static areaOf(length) {
+    static areaOf(length) { // class 자체에서 작동하는 function이다.
         return length * length;
     }
 
@@ -151,6 +152,49 @@ const sqA = new StatSquare(10);
 const sqB = new StatSquare(20);
 const sqC = new StatSquare(30);
 
-console.log(`지금까지 생성된 StatSquare 인스턴스는 ${ StatSquare.counter }개 입니다.`);
-console.log(`한 변의 길이가 20인 정사각형의 둘레는 ${ StatSquare.perimeterOf(20) }입니다.`);
+console.log(`지금까지 생성된 StatSquare 인스턴스는 ${ StatSquare.counter }개 입니다.`); // 위에서 생성한 sqA, sqB, sqC의 기록을 갖고 있다.
+console.log(`한 변의 길이가 50인 정사각형의 둘레는 ${ StatSquare.perimeterOf(50) }입니다.`); // new StatSquare 로 선언하지 않아도 class가 가지고 있는 기능을 사용할 수 있다.
 console.log(`한 변의 길이가 30인 정사각형의 둘레는 ${ StatSquare.areaOf(30) }입니다.`);
+
+
+
+// 종속 클래스의 오버라이드
+
+class LifeCycle {
+    call() {
+        this.a();
+        this.b();
+        this.c();
+    }
+
+    a() { console.log('a 메소드 호출') }
+    b() { console.log('b 메소드 호출') }
+    c() { console.log('c 메소드 호출') }
+}
+
+class LifeChild extends LifeCycle {
+    a() {
+        console.log('종속 클래스의 a 메소드');
+    }
+}
+
+new LifeChild().call();
+
+
+
+// Javascript의 기본 메소드인 toString() 메소드를 오버라이드
+
+class Pet {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    toString() { // 기본 명령어를 오버라이드 한다.
+        return `이름: ${ this.name }\n나이: ${ this.age }`;
+    }
+}
+
+const myPet = new Pet('땅콩', 3);
+
+console.log(myPet.toString()); // 이름과 나이 등이 문자열로 출력된다.
